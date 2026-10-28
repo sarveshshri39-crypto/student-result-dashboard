@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080b16">
+    <title>Exam Results Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">CLASS OVERVIEW</p>
+          <h1>Exam Results Dashboard</h1>
+          <p class="intro">A quick look at class performance and individual results.</p>
+        </div>
+        <p class="sample-note">Sample data only — all student names and results are fictional.</p>
+      </header>
+
+      <section class="summary-grid" aria-label="Class summary">
+        <article class="summary-card">
+          <h2>Number of students</h2>
+          <p class="summary-value" id="student-count">0</p>
+          <p class="summary-detail">In the current view</p>
+        </article>
+        <article class="summary-card">
+          <h2>Class average</h2>
+          <p class="summary-value" id="class-average">0%</p>
+          <p class="summary-detail">Average score in the current view</p>
+        </article>
+        <article class="summary-card">
+          <h2>Highest score</h2>
+          <p class="summary-value" id="highest-score">0%</p>
+          <p class="summary-detail">Best score in the current view</p>
+        </article>
+        <article class="summary-card">
+          <h2>Pass rate</h2>
+          <p class="summary-value" id="pass-rate">0%</p>
+          <p class="summary-detail">Scores of 50% or above</p>
+        </article>
+      </section>
+
+      <section class="panel filters-panel" aria-labelledby="filters-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">FIND RESULTS</p>
+            <h2 id="filters-heading">Search and filter</h2>
+          </div>
+          <button class="reset-button" id="reset-filters" type="button">Clear filters</button>
+        </div>
+        <div class="filter-controls">
+          <div class="filter-field search-field">
+            <label for="student-search">Search by student name or roll number</label>
+            <input id="student-search" type="search" placeholder="For example, Alex or R-104" autocomplete="off">
+          </div>
+          <div class="filter-field">
+            <label for="subject-filter">Subject</label>
+            <select id="subject-filter">
+              <option value="all">All subjects</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="status-filter">Result status</label>
+            <select id="status-filter">
+              <option value="all">Pass and fail</option>
+              <option value="pass">Pass</option>
+              <option value="fail">Fail</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel chart-panel" aria-labelledby="chart-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">SCORE BREAKDOWN</p>
+            <h2 id="chart-heading">Score distribution</h2>
+          </div>
+          <p class="panel-note">Number of results in each score range</p>
+        </div>
+        <div class="chart" id="score-chart" role="img" aria-label="Score distribution chart"></div>
+      </section>
+
+      <section class="panel results-panel" aria-labelledby="results-heading">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="eyebrow">STUDENT RESULTS</p>
+            <h2 id="results-heading">Exam results</h2>
+          </div>
+          <p class="result-count" id="result-count" aria-live="polite">Showing 0 results</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Fictional student exam results for the current search and filters</caption>
+            <thead>
+              <tr>
+                <th scope="col">Student name</th>
+                <th scope="col">Roll number</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Score</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Result status</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
